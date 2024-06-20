@@ -1,0 +1,70 @@
+const {
+    ApplicationCommandOptionType,
+    PermissionFlagsBits,
+} = require('discord.js');
+
+const Tribe = require('../../models/tribe');
+const { servers, tribes } = require('../../utils/store');
+
+module.exports = {
+    deleted: false,
+    name: 'create-tribe',
+    description: 'Create a tribe.',
+    options: [
+        {
+            name: 'tribe-name',
+            description: 'The name of the tribe you want to create.',
+            required: true,
+            type: ApplicationCommandOptionType.String,
+        },
+        {
+            name: 'server-name',
+            description: 'The name of the Server where your Tribe has its Main-Base',
+            required: true,
+            type: ApplicationCommandOptionType.String,
+            choices: servers.get()
+        },
+        {
+            name: 'tribe-lat',
+            description: 'LAT of Main-Base 0,00 -99,99',
+            required: true,
+            type: ApplicationCommandOptionType.Number,
+            min_value: 0.00,
+            max_value: 99.99
+            
+        },
+        {
+            name: 'tribe-lon',
+            description: 'LON of Main-Base 0,00 -99,99',
+            required: true,
+            type: ApplicationCommandOptionType.Number,
+            min_value: 0.00,
+            max_value: 99.99
+        },
+    ],
+
+    callback: async (client, interaction) => {
+
+        const {options} = interaction;
+        const data = {
+            name: options.getString('tribe-name'),
+            tag: options.getString('tribe-name').replace(/ /g, '_').toLowerCase(),
+            srv_tag: options.getString('server-name'),
+            lat: options.get('tribe-lat').value.toFixed(2),
+            lon: options.get('tribe-lon').value.toFixed(2),
+        }
+      
+        const [tribe, created] = await Tribe.findOrCreate({
+            where: { tag: data.tag }, 
+            defaults: { name: data.name, lat: data.lat, lon: data.lon, server_tag: data.srv_tag }
+        });
+
+        if(!created) {
+            interaction.reply(`Tribe **${tribe.name}**, already existed!`);
+        }else {
+            const modelData = await Tribe.findAll();
+            tribes.writeFromModel(modelData);
+            interaction.reply(`Tribe **${tribe.name}**, was created!`);
+        }
+    },
+};

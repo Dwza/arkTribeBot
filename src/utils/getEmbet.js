@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 
-const embed = (color, title, description = null, fields = null, imgUrl = null, footerObj = null, timestamp = false) => {
+const embed = (color, title, description = null) => {
     const e = new EmbedBuilder()
     .setColor(color)
     .setTitle(title)
@@ -11,26 +11,6 @@ const embed = (color, title, description = null, fields = null, imgUrl = null, f
         e.setDescription(description);
     }
         
-    if(footerObj) {
-        e.setFooter({ text: footerObj.text, iconURL: footerObj.iconURL });
-    }
-
-    if(imgUrl) {
-        e.setImage(imgUrl)
-    }
-
-    if(timestamp) {
-        e.setTimestamp();
-    }
-
-    if(fields) {
-        for(const field of fields) {
-            e.addFields(
-                { name: field.name, value: field.value, inline: field.inline}
-            );
-        }
-    }
-
     return e;
 }
 const info = (text) => {
@@ -48,7 +28,6 @@ const success = (text) => {
 const warning = (text) => {
     return embed("Orange", "Warning ⚠️", text);
 }
-
 
 module.exports = {
     info,

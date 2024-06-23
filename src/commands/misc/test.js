@@ -11,6 +11,7 @@ module.exports = {
     callback: async (client, interaction) => {
 
         const embed = embeds.info("hello");
+        embed.addFields({name: "NAME", value: "bla bla"})
         //const embed = embeds.success;
   
         /*

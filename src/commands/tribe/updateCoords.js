@@ -56,15 +56,19 @@ module.exports = {
                 const dLat = data.lat;
                 const dLon = data.lon;
 
-                const old_coords = tLat + "/" + tLon;
-                const new_coords = dLat + "/" + dLon;
+                const old_coords = tLat + " / " + tLon;
+                const new_coords = dLat + " / " + dLon;
 
                 tribe.lat = dLat;
                 tribe.lon = dLon;
 
                 if (tLat != dLat || tLon != dLon) {
                     await tribe.save();
-                    embed = embeds.success(`## Changed corrds\n**${old_coords}** to **${new_coords}** 📌`);
+                    embed = embeds.success(`## Changed corrds 📌`);
+                    embed.addFields(
+                        {name: 'Old Coords', value: `${old_coords}`, inline: true},
+                        {name: 'New Coords', value: `${new_coords}`, inline: true}
+                    );
                 } else {
                     embed = embeds.info(`Coords are the same!`);
                 }

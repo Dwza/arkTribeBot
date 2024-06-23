@@ -10,43 +10,21 @@ Natürlich ist hier jeder selbst gefragt, seine Daten zu pflegen.
 
 #### Admin
 
-- `/create-map`: Erstellt eine Map, wie zb. The Island, The Center etc.
-  ##### Parameter:
-  - `map-name` Der Name den die Map hat. Zb The Island, The Center....
+| Command   | Parameter/s           | Parameter-Description  |
+|-----------|:----------------------|:-----------------------|
+| `/create-map`<br>_Erstellt eine Map_ | `map-name`<br>&nbsp; | Der Name den die Map hat. Zb The Island, The Center....<br>&nbsp; |
+| `/create-server`<br>_Erstellt einen Server_ | `server-name`<br>`map-name` | Names des Servers zb ASA 1, ASA 2, etc.<br>Auswahl an erstellen Maps |
+| `/delete-map`<br>_Löscht eine erstellte Map_ | `map-name`<br>&nbsp; | Auswahl an erstellen Maps<br>&nbsp; |
+| `/delete-server`<br>_Löscht einen erstellten Server_ | `server-name`<br>&nbsp; | Auswahl an erstellen Servern<br>&nbsp; |
+| `/delete-tribe`<br>_Löscht einen erstellten Tribe*_ | `tribe-name`<br>&nbsp; | Auswahl an erstellen Tribes<br>&nbsp; |
 
-- `/create-server`: Erstellt einen Server.
-  ##### Parameter:
-  - `server-name` Names des Servers zb ASA 1, ASA 2, etc.
-  - `map-name` Auswahl an erstellen Maps
-
-- `/delete-map`: Mit diesem Command kann man erstellte Maps löschen.
-  ##### Parameter:
-  - `map-name`  
-  Auswahl an erstellen Maps
-
-- `/delete-server`: Mit diesem Command kann man erstellte Server löschen.
-  ##### Parameter:
-  - `server-name` Auswahl an erstellen Servern
-
-- `/delete-tribe`: Löscht einen Tribe
-  ##### Parameter:
-  - `stribe-name` Auswahl an erstellen Tribes  
-
-  User können Tribes erstellen. Doch um sicher zu sein das keiner Böswillig die Tribes löscht, ist dieser Command den Admins vorbehalten.  
-
+*Um den Missbruach dieser Funktion zu verhindern, ist das löschen von Tribes nur Admins vorbehalten.
 #### User
 
-- `/create-tribe`  
-Erstellt eine Map, wie zb. The Island, The Center etc.
-
-- `/join-tribe`  
-Erstellt einen Server. Hier bekommt man eine Auswahl aller erstellten Maps die dann zu einem Server zugeordnet werden können.
-
-- `/leave-tribe`  
-Mit diesem Command kann man erstellte Maps löschen.
-
-- `/update-tribe-coords`  
-Mit diesem Command kann man erstellte Server löschen.
-
-- `/update-tribe-server`  
-User können Tribes erstellen. Doch um sicher zu sein das keiner Böswillig die Tribes löscht, ist dieser Command den Admins vorbehalten.
+| Command   | Parameter/s           | Parameter-Description  |
+|-----------|:----------------------|:-----------------------|
+| `/create-tribe`<br>_Erstellt einen Tribe_ | `tribe-name`<br>&nbsp; | Name des zu erstellenden Tribes<br>&nbsp; |
+| `/join-tribe`<br>_Einem Tribe beitreten_ | `tribe-name`<br>&nbsp; | Auswahl an erstellen Tribes<br>&nbsp; |
+| `/leave-tribe`<br>_Einen Tribe verlassen_ | `tribe-name`<br>&nbsp; | Auswahl an erstellen Tribes<br>&nbsp; |
+| `/update-tribe-coords`<br>_Koordinaten der MainBase aktualisieren_ | `lat`<br>`lon` | Lat Wert (mit Komma)<br>Lon Wert (mit Komma) |
+| `/update-tribe-server`<br>_Server der MainBase aktualisieren_ | `server-name`<br>&nbsp; | Auswahl an erstellen Servern<br>&nbsp; |

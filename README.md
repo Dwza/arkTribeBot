@@ -10,37 +10,29 @@ Natürlich ist hier jeder selbst gefragt, seine Daten zu pflegen.
 
 #### Admin
 
-- `/create-map`: `map-name`  
-Erstellt eine Map, wie zb. The Island, The Center etc.
+- `/create-map`: Erstellt eine Map, wie zb. The Island, The Center etc.
   ##### Parameter:
-  - `map-name`  
-  Der Name den die Map hat. Zb The Island, The Center....
+  - `map-name` Der Name den die Map hat. Zb The Island, The Center....
 
-- `/create-server`: `server-name` `map-name`  
-Erstellt einen Server. Hier bekommt man eine Auswahl aller erstellten Maps die dann zu einem Server zugeordnet werden können.
+- `/create-server`: Erstellt einen Server.
   ##### Parameter:
-  - `server-name`  
-  Names des Servers zb ASA 1, ASA 2, etc.
-  - `map-name`  
-  Auswahl an erstellen Maps
+  - `server-name` Names des Servers zb ASA 1, ASA 2, etc.
+  - `map-name` Auswahl an erstellen Maps
 
-- `/delete-map`: `map-name`  
-Mit diesem Command kann man erstellte Maps löschen.
+- `/delete-map`: Mit diesem Command kann man erstellte Maps löschen.
   ##### Parameter:
   - `map-name`  
   Auswahl an erstellen Maps
 
-- `/delete-server`: `server-name`  
-Mit diesem Command kann man erstellte Server löschen.
+- `/delete-server`: Mit diesem Command kann man erstellte Server löschen.
   ##### Parameter:
-  - `server-name`  
-  Auswahl an erstellen Servern
+  - `server-name` Auswahl an erstellen Servern
 
-- `/delete-tribe`: `tribe-name`  
-User können Tribes erstellen. Doch um sicher zu sein das keiner Böswillig die Tribes löscht, ist dieser Command den Admins vorbehalten.  
+- `/delete-tribe`: Löscht einen Tribe
   ##### Parameter:
-  - `stribe-name`  
-  Auswahl an erstellen Tribes
+  - `stribe-name` Auswahl an erstellen Tribes  
+
+  User können Tribes erstellen. Doch um sicher zu sein das keiner Böswillig die Tribes löscht, ist dieser Command den Admins vorbehalten.  
 
 #### User
 

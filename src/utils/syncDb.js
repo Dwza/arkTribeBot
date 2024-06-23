@@ -7,7 +7,7 @@ const Tribe = require('../models/tribe');
 
 
 return;
-//db.sequelize.sync();
+//sequelize.sync({force: true});
 //return;
 
 //Map.sync({force: true});

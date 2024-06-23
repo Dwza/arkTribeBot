@@ -6,9 +6,9 @@ Also wo Tribes Ihre Basen haben, wer in welchem Tribe ist, wieviele Tibes es gib
 
 Natürlich ist hier jeder selbst gefragt, seine Daten zu pflegen.
 
-### Eine Liste der verfügbaren Commands:
+# Eine Liste der verfügbaren Commands:
 
-#### Admin
+## Admin
 
 | Command   | Parameter/s           | Parameter-Description  |
 |-----------|:----------------------|:-----------------------|
@@ -19,7 +19,7 @@ Natürlich ist hier jeder selbst gefragt, seine Daten zu pflegen.
 | **`/delete-tribe`**<br>_Löscht einen erstellten Tribe*_ | `tribe-name`<br>&nbsp; | Auswahl an erstellen Tribes<br>&nbsp; |
 
 *Um den Missbruach dieser Funktion zu verhindern, ist das löschen von Tribes nur Admins vorbehalten.
-#### User
+## User
 
 | Command   | Parameter/s           | Parameter-Description  |
 |-----------|:----------------------|:-----------------------|

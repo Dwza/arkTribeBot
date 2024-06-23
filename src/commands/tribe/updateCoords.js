@@ -5,6 +5,7 @@ const {
 
 const Member = require('../../models/member');
 const Tribe = require('../../models/tribe');
+const embeds = require('../../utils/getEmbet');
 
 module.exports = {
     deleted: false,
@@ -13,7 +14,7 @@ module.exports = {
     options: [
         {
             name: 'tribe-lat',
-            description: 'LAT of Main-Base 0,00 -99,99',
+            description: 'LAT of Main-Base 0,00 -99,99 (with COMMA)',
             required: true,
             type: ApplicationCommandOptionType.Number,
             min_value: 0.00,
@@ -22,7 +23,7 @@ module.exports = {
         },
         {
             name: 'tribe-lon',
-            description: 'LON of Main-Base 0,00 -99,99',
+            description: 'LON of Main-Base 0,00 -99,99 (with COMMA)',
             required: true,
             type: ApplicationCommandOptionType.Number,
             min_value: 0.00,
@@ -43,6 +44,7 @@ module.exports = {
             where: { user_id: user.id }
         });
 
+        let embed = embeds.error(`Something went wrong!`);
         if(member) {
             const tribe = await Tribe.findOne({
                 where: { tag: member.tribe_tag }
@@ -60,17 +62,19 @@ module.exports = {
                 tribe.lat = dLat;
                 tribe.lon = dLon;
 
-                if(tLat != dLat || tLon != dLon) {
+                if (tLat != dLat || tLon != dLon) {
                     await tribe.save();
-                    interaction.reply(`changed from ${old_coords} to ${new_coords}`);
-                }else{
-                    interaction.reply(`coords are the same!`);
+                    embed = embeds.success(`## Changed corrds\n**${old_coords}** to **${new_coords}** 📌`);
+                } else {
+                    embed = embeds.info(`Coords are the same!`);
                 }
-            }else{
-                interaction.reply(`tribe doesnt exist anymore.`);
+            } else {
+                embed = embeds.error(`Tribe does'nt exist anymore! `);
             }
-        }else{
-            interaction.reply(`member has not tribe`);
+        } else {
+            embed = embeds.warning(`You are in no tribe!`);
         }
+
+        interaction.reply({embeds: [embed]});
     },
 };

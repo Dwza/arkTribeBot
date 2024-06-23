@@ -1,5 +1,4 @@
-const {EmbedBuilder, AttachmentBuilder} = require('discord.js');
-//const { createCanvas, loadImage } = require('canvas');
+const embeds = require('../../utils/getEmbet');
 
 module.exports = {
     name: 'test',
@@ -11,6 +10,9 @@ module.exports = {
 
     callback: async (client, interaction) => {
 
+        const embed = embeds.info("hello");
+        //const embed = embeds.success;
+  
         /*
         const lat = 50;
         const lon = 50
@@ -43,6 +45,7 @@ module.exports = {
         image.onerror = function() {
             console.log('failed to load image');
         }*/
-        interaction.reply(`tested`);
+        interaction.reply({ embeds: [embed] });
+        //interaction.reply(`tested`);
     },
 };

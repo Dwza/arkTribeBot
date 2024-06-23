@@ -26,45 +26,44 @@ module.exports = {
     callback: async (client, interaction) => {
      
         const { options } = interaction;
-        const data = {};
-
+        
         // tríbe
-        const trbs = await Tribe.findAll({
+        const trbs = await Tribe.findOne({
             where: {
                 tag: options.getString('tribe-name')
             }
         });
         
-        data.name = trbs[0].name;
-        data.lat = trbs[0].lat;
-        data.lon = trbs[0].lon;
-
         // members
-        const members = await Member.findAll({
+        const members = await Member.findOne({
             where: {
-                tribe_tag: trbs[0].tag
+                tribe_tag: trbs.tag
             }
         });
-        data.count = members.length;
       
         // server
-        const server = await Server.findAll({
+        const server = await Server.findOne({
             where: {
-                tag: trbs[0].server_tag
+                tag: trbs.server_tag
             }
         });
-
-        data.server = server[0].name
-        // map
-        const map = await Map.findAll({
-            where: {
-                tag: server[0].map_tag
-            }
-        });
-
         
-        data.map = map[0].name;
+        // map
+        const map = await Map.findOne({
+            where: {
+                tag: server.map_tag
+            }
+        });
 
+        const data = {
+            map: map.name,
+            name: trbs.name,
+            lat: trbs.lat,
+            lon: trbs.lon,
+            server: server.name,
+            count: members.length
+        };
+        
         const embed = new EmbedBuilder()
         .setTitle(`Detail zu ${data.name}`)
         .setColor('Blue')

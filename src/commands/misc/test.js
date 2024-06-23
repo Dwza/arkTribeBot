@@ -11,7 +11,10 @@ module.exports = {
     callback: async (client, interaction) => {
 
         const embed = embeds.info("hello");
-        embed.addFields({name: "NAME", value: "bla bla"})
+        embed.addFields({name: "NAME", value: "bla bla"});
+
+        const { servers } = require('../../utils/store');
+        console.log(servers.get('asa_3').name);
         //const embed = embeds.success;
   
         /*
@@ -46,7 +49,7 @@ module.exports = {
         image.onerror = function() {
             console.log('failed to load image');
         }*/
-        interaction.reply({ embeds: [embed] });
+        interaction.reply('tested');
         //interaction.reply(`tested`);
     },
 };

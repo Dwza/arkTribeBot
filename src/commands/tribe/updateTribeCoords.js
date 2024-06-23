@@ -9,7 +9,7 @@ const embeds = require('../../utils/getEmbet');
 
 module.exports = {
     deleted: false,
-    name: 'update-coords',
+    name: 'update-tribe-coords',
     description: 'Update tribe coords',
     options: [
         {

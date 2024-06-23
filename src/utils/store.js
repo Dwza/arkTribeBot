@@ -41,7 +41,10 @@ class Store {
         fs.writeFileSync(this.file, JSON.stringify(this.store, null, 4));
 
     }
-    get() {
+    get (value = null) {
+        if(value) {
+            return this.store.find(s => s.value === value);
+        }
         return this.store;
     }
 }

@@ -6,6 +6,7 @@ const {
 const Tribe = require('../../models/tribe');
 const Member = require('../../models/member');
 const { tribes } = require('../../utils/store');
+const embeds = require('../../utils/getEmbet');
 
 module.exports = {
     deleted: false,
@@ -35,15 +36,15 @@ module.exports = {
             defaults: { tribe_tag: data.tag }
         });
 
-        let msg = "Tribe joined!";
+        let embed = embeds.success("Tribe joined!");
         if(!created) {
-            msg = "You are already assigned to this tribe!";
+            embed = embeds.info("You are already assigned to this tribe!");
             if(member.tribe_tag !== data.tag) {
-                msg = "You are assignet to another Tribe. Leave tribe first!";
+                embed = embeds.error("You are assignet to another Tribe. Leave tribe first!");
             }
         }
 
-        interaction.reply(`${msg}`);
+        interaction.reply({embeds: [embed]});
         
     },
 };

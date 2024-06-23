@@ -4,6 +4,7 @@ const {
 } = require('discord.js');
 
 const Member = require('../../models/member');
+const embeds = require('../../utils/getEmbet');
 
 module.exports = {
     deleted: false,
@@ -15,14 +16,14 @@ module.exports = {
             where: { user_id: user.id }
         });
 
-        let msg = "You are in no tribe.";
+        let embed = embeds.info('You are in no tribe.');
         if(usr.length > 0) {
             for(const u of usr) {
                 await u.destroy();
             }
-            msg = "You left the tribe!";
+            embed = embeds.success('You left the tribe!');
         }
         
-        interaction.reply(`${msg}`);
+        interaction.reply({embeds: [embed]});
     },
 };

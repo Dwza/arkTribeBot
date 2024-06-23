@@ -5,6 +5,7 @@ const {
 
 const Tribe = require('../../models/tribe');
 const { servers, tribes } = require('../../utils/store');
+const embeds = require('../../utils/getEmbet');
 
 module.exports = {
     deleted: false,
@@ -59,12 +60,14 @@ module.exports = {
             defaults: { name: data.name, lat: data.lat, lon: data.lon, server_tag: data.srv_tag }
         });
 
+        let embed = embeds.success(`Tribe **${tribe.name}**, was created!`);
         if(!created) {
-            interaction.reply(`Tribe **${tribe.name}**, already existed!`);
+            embed = embeds.info(`Tribe **${tribe.name}**, already existed!`);
         }else {
             const modelData = await Tribe.findAll();
             tribes.writeFromModel(modelData);
-            interaction.reply(`Tribe **${tribe.name}**, was created!`);
         }
+
+        interaction.reply({embeds: [embed]});
     },
 };

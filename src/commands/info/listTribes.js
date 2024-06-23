@@ -23,7 +23,6 @@ module.exports = {
         .setThumbnail('https://dinoinsel.de/assets/img/dinoinsel-logo-v3.png')
         .setFooter({ text: 'Last time called', iconURL: 'https://dinoinsel.de/assets/img/dinoinsel-logo-v3.png' })
         .setTitle("All Tribes")
-        .setColor('Blue')
         ;
 
         let tribeNames = "";

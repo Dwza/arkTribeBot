@@ -14,22 +14,33 @@ const embed = (color, title, description = null) => {
     return e;
 }
 const info = (text) => {
-    return embed("White", "Info ❕", text);
+    return embed("White", "Info ❕", text)
+    ;
 }
 
 const error = (text) => {
-    return embed("Red", "Error ❌", text);
+    return embed("Red", "Error ❌", text)
+    ;
 }
 
 const success = (text) => {
-    return embed("Green", "Success ✅", text);
+    return embed("Green", "Success ✅", text)
+    ;
 }
 
 const warning = (text) => {
-    return embed("Orange", "Warning ⚠️", text);
+    return embed("Orange", "Warning ⚠️", text)
+    ;
 }
 
+const msg = (title, text) => {
+    return embed("Blue", title, text)
+    ;
+}
+
+
 module.exports = {
+    msg,
     info,
     success,
     error,

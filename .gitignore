@@ -129,5 +129,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+#custom changes
 *.sqlite
 src/stores/*
+src/commands/misc/test.js

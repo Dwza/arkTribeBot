@@ -39,7 +39,11 @@ class Store {
        
         this.store = data;
         fs.writeFileSync(this.file, JSON.stringify(this.store, null, 4));
-
+    }
+    async refreshStore() {
+        const modelPath = path.join('../models/', this.storeName.slice(0,-1));
+        const Model = require(modelPath);
+        this.writeFromModel(await Model.findAll());
     }
     get (value = null) {
         if(value) {

@@ -29,8 +29,7 @@ module.exports = {
         }
 
         if(await Tribe.destroy({ where: { tag: data.tag } })) {
-            const modelData = await Tribe.findAll();;
-            tribes.writeFromModel(modelData);
+            tribes.refreshStore();
             interaction.reply(`Tribe **${data.name}** was deleted!`);
         }
     },

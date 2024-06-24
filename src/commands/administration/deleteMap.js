@@ -27,8 +27,7 @@ module.exports = {
         const map_tag = options.getString('map-name').replace(/ /g, '_').toLowerCase();
 
         if(await Map.destroy({ where: { tag: map_tag } })) {
-            const modelData = await Map.findAll();;
-            maps.writeFromModel(modelData);
+            maps.refreshStore();
             interaction.reply(`Map **${map_name}** was deleted!`);
         }
     },

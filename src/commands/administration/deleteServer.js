@@ -29,8 +29,7 @@ module.exports = {
         };
       
         if(await Server.destroy({ where: { tag: data.tag } })) {
-            const modelData = await Server.findAll();;
-            servers.writeFromModel(modelData);
+            servers.refreshStore();
             interaction.reply(`Server **${data.name}** was deleted!`);
         }
     },

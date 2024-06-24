@@ -38,8 +38,7 @@ module.exports = {
         if(!created) {
             interaction.reply(`Server "${server_name}", already existed!`);
         }else {
-            const modelData = await Server.findAll();;
-            servers.writeFromModel(modelData);
+            servers.refreshStore();
             interaction.reply(`Server "${server_name}", was created!`);
         }
     },

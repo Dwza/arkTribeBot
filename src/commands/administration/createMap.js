@@ -30,8 +30,7 @@ module.exports = {
         if(!created) {
             interaction.reply(`Map **${map.name}**, already existed!`);
         }else {
-            const modelData = await Map.findAll();;
-            maps.writeFromModel(modelData);
+            maps.refreshStore();
             interaction.reply(`Map **${map.name}**, was created!`);
         }
     },

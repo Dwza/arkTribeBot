@@ -4,7 +4,9 @@ const {
 } = require('discord.js');
 
 const Member = require('../../models/member');
+const Tribe = require('../../models/tribe');
 const embeds = require('../../utils/getEmbet');
+const { tribes } = require('../../utils/store');
 
 module.exports = {
     deleted: false,
@@ -12,16 +14,29 @@ module.exports = {
     description: 'Leave tribe.',
     callback: async (client, interaction) => {
         const { user } = interaction;
-        const usr = await Member.findAll({
+        const member = await Member.findOne({
             where: { user_id: user.id }
         });
-
         let embed = embeds.info('You are in no tribe.');
-        if(usr.length > 0) {
-            for(const u of usr) {
-                await u.destroy();
-            }
+        
+        if(member) {
+            const tag = member.tribe_tag;
+            await member.destroy();
             embed = embeds.success('You left the tribe!');
+            const members = Member.findAll({
+                where: {
+                    tribe_tag: tag
+                }
+            });
+
+            if(!members.length) {
+                await Tribe.destroy({
+                    where: {
+                        tag: tag
+                    }
+                });
+                tribes.refreshStore();
+            }
         }
         
         interaction.reply({embeds: [embed]});

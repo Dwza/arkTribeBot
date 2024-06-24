@@ -9,6 +9,10 @@ const Member = sequelize.define('member', {
     tribe_tag: {
         type: Sequelize.STRING,
         allowNull: true
+    },
+    tribe_admin: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: 0
     }
 });
 

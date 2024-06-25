@@ -28,6 +28,7 @@ Natürlich ist hier jeder selbst gefragt, seine Daten zu pflegen.
 | **`/leave-tribe`**<br>_Einen Tribe verlassen_ | `tribe-name`<br>&nbsp; | Auswahl an erstellen Tribes<br>&nbsp; |
 | **`/update-tribe-coords`**<br>_Koordinaten der MainBase aktualisieren_ | `lat`<br>`lon` | Lat Wert (mit Komma)<br>Lon Wert (mit Komma) |
 | **`/update-tribe-server`**<br>_Server der MainBase aktualisieren_ | `server-name`<br>&nbsp; | Auswahl an erstellen Servern<br>&nbsp; |
+| **`/give-admin`**<br>_Gibt den Admin an einen anderes Mitglied ab._ | `user`<br>&nbsp; | Auswahl an Usern (AutoComplete)<br>&nbsp; |
 | **`/show-tribe`**<br>_Zeigt Stats zu einem Tribe_ | | | 
 | **`/list-maps`**<br>_Zeigt eine Liste angelegter Maps_ | | |
 | **`/list-tribes`**<br>_Zeigt eine Liste angelegter Tribes_ | | |

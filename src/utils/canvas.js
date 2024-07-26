@@ -28,6 +28,9 @@ module.exports.cImg = async (lat, lon, map, interaction) => {
         
         await interaction.reply({ embeds: [embed], files: [attachment] });
         */
+        
     }
+        //*/
+    console.log('done');
     
 } 

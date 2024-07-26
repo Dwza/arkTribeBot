@@ -17,6 +17,8 @@ Natürlich ist hier jeder selbst gefragt, seine Daten zu pflegen.
 | **`/delete-map`**<br>_Löscht eine erstellte Map_ | `map-name`<br>&nbsp; | Auswahl an erstellen Maps<br>&nbsp; |
 | **`/delete-server`**<br>_Löscht einen erstellten Server_ | `server-name`<br>&nbsp; | Auswahl an erstellen Servern<br>&nbsp; |
 | **`/delete-tribe`**<br>_Löscht einen erstellten Tribe*_ | `tribe-name`<br>&nbsp; | Auswahl an erstellen Tribes<br>&nbsp; |
+| **`/add-mod`**<br>_Fügt eine Mod hinzu_ | `mod-name`<br>`project-id` | Name der Mod<br>Project ID |
+| **`/delete-mod`**<br>_Löscht eineMod_ | `mod-name`<br>&nbsp; | Auswahl an hinzugefügten Mods<br>&nbsp; |
 
 *Um den Missbruach dieser Funktion zu verhindern, ist das löschen von Tribes nur Admins vorbehalten.
 ## User
@@ -33,4 +35,5 @@ Natürlich ist hier jeder selbst gefragt, seine Daten zu pflegen.
 | **`/list-maps`**<br>_Zeigt eine Liste angelegter Maps_ | | |
 | **`/list-tribes`**<br>_Zeigt eine Liste angelegter Tribes_ | | |
 | **`/list-servers`**<br>_Zeigt eine Liste angelegter Server_ | | |
+| **`/changelog`**<br>_Zeigt die letzten Änderungen einer Mod_ | | |
 |

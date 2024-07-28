@@ -2,7 +2,7 @@ const {
     ApplicationCommandOptionType,
     PermissionFlagsBits,
 } = require('discord.js');
-const { plugins } = require('../../utils/store');
+const { mods } = require('../../utils/store');
 
 module.exports = {
     deleted: false,
@@ -29,7 +29,7 @@ module.exports = {
 
         const modName = options.getString('mod-name');
         const projectId = options.get('project-id');
-        const p = plugins.get();
+        const p = mods.get();
 
         if((p.filter(e => e.value === projectId.value)).lenght > 0) {
             interaction.reply(`${modName} already exists!`);
@@ -39,7 +39,7 @@ module.exports = {
                 value: projectId.value
             }
             p.push(mod);
-            plugins.writeFromModel(p, "name", "value")
+            mods.writeFromModel(p, "name", "value")
             interaction.reply(`${modName} was added!`);
         }
     },

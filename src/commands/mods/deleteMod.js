@@ -2,7 +2,7 @@ const {
     ApplicationCommandOptionType,
     PermissionFlagsBits,
 } = require('discord.js');
-const { plugins } = require('../../utils/store');
+const { mods } = require('../../utils/store');
 
 module.exports = {
     deleted: false,
@@ -15,7 +15,7 @@ module.exports = {
             description: 'Name of the Mod',
             required: true,
             type: ApplicationCommandOptionType.Integer,
-            choices: plugins.get()
+            choices: mods.get()
         },
     ],
 
@@ -23,10 +23,10 @@ module.exports = {
         const {options} = interaction;
 
         const mod = options.get('mod-name');
-        const p = plugins.get();
-        const current = plugins.get(mod.value);
+        const p = mods.get();
+        const current = mods.get(mod.value);
 
-        plugins.writeFromModel(p.filter(e => e.value !== mod.value), "name", "value");
+        mods.writeFromModel(p.filter(e => e.value !== mod.value), "name", "value");
 
         interaction.reply(`${current.name} was deleted!`);
     },

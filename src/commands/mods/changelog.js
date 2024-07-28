@@ -50,7 +50,7 @@ module.exports = {
         await axios.get(`/mods/${mod.id}/files?pageSize=10`, config)
             .then(async function(res) {
 
-                console.log(res.data.data);
+                //console.log(res.data.data);
 
                 let i = 0;
                 let date, nextDate;
